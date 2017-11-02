@@ -6,9 +6,9 @@ pipeline {
         sh 'mvn clean install'
       }
     }
-    stage('Build Stage') {
+    stage('Azure Deployment') {
       steps {
-        echo 'Application Build Successfully'
+        ansiblePlaybook '${JENKINS_HOME}/workspace/azureJava.yml'
       }
     }
   }
